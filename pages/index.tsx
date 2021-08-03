@@ -2,44 +2,25 @@
 
 import Hero from '../components/home-page/hero/hero';
 import FeaturedPosts from "../components/home-page/featured-posts/featured-posts";
+import {GetStaticProps} from "next";
 import IPost from "../interfaces/post";
+import React from "react";
+import {getFeaturedPosts} from "../utils/posts-util";
 
-const DUMMY_POSTS: Array<IPost> = [
-    {
-        slug: 'getting-started-with-nextjs',
-        title: 'Getting started with NextJS',
-        image: 'getting-started-nextjs.png',
-        excerpt: 'NextJS is the react framework for production.',
-        date: '2022-08-05',
-    },
-    {
-        slug: 'getting-started-with-nextjs2',
-        title: 'Getting started with NextJS',
-        image: 'getting-started-nextjs.png',
-        excerpt: 'NextJS is the react framework for production.',
-        date: '2022-08-05',
-    },
-    {
-        slug: 'getting-started-with-nextjs3',
-        title: 'Getting started with NextJS',
-        image: 'getting-started-nextjs.png',
-        excerpt: 'NextJS is the react framework for production.',
-        date: '2022-08-05',
-    },
-    {
-        slug: 'getting-started-with-nextjs4',
-        title: 'Getting started with NextJS',
-        image: 'getting-started-nextjs.png',
-        excerpt: 'NextJS is the react framework for production.',
-        date: '2022-08-05',
-    },
-];
+type Props = {
+    featuredPosts: Array<IPost>;
+}
 
-const HomePage = () => (
+const HomePage: React.FC<Props> = ({featuredPosts}) => (
     <>
         <Hero/>
-        <FeaturedPosts posts={DUMMY_POSTS}/>
+        <FeaturedPosts posts={featuredPosts}/>
     </>
 )
+
+export const getStaticProps: GetStaticProps<Props> = () => {
+    const featuredPosts = getFeaturedPosts();
+    return {props: {featuredPosts}};
+}
 
 export default HomePage;

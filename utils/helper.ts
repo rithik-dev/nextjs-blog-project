@@ -7,3 +7,5 @@ export const formatDate = (date: string): string => new Date(date).toLocaleDateS
 });
 
 export const getPostImagePath = (post: IPost) => `/images/posts/${post.slug}/${post.image}`;
+
+export const removeFileExtension = (fileName: string) => fileName.replace(/\.md$/, '');

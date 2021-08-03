@@ -3,23 +3,20 @@ import PostHeader from "../post-header/post-header";
 import IPost from "../../../../interfaces/post";
 import {getPostImagePath} from "../../../../utils/helper";
 import ReactMarkdown from "react-markdown";
+import React from "react";
 
-const DUMMY_POST: IPost = {
-    slug: 'getting-started-with-nextjs',
-    title: 'Getting started with NextJS',
-    image: 'getting-started-nextjs.png',
-    date: '2022-08-05',
-    content: '# This is a dummy post',
-};
+type Props = {
+    post: IPost;
+}
 
-const PostContent = () => {
-    const imageSrc = getPostImagePath(DUMMY_POST);
+const PostContent: React.FC<Props> = ({post}) => {
+    const imageSrc = getPostImagePath(post);
 
     return (
         <>
             <article className={styles.content}>
-                <PostHeader title={DUMMY_POST.title} imageSrc={imageSrc}/>
-                {DUMMY_POST.content && <ReactMarkdown>{DUMMY_POST.content}</ReactMarkdown>}
+                <PostHeader title={post.title} imageSrc={imageSrc}/>
+                <ReactMarkdown>{post.content}</ReactMarkdown>
             </article>
         </>
     )
