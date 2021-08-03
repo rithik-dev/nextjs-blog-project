@@ -1,7 +1,10 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+// noinspection JSUnusedGlobalSymbols
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+import '../styles/globals.css'
+import type {AppProps} from 'next/app'
+
+const MyApp = ({Component, pageProps}: AppProps) => {
+    return <Component {...pageProps} />
 }
+
 export default MyApp
