@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from './post-card.module.css';
-import {formatDate} from "../../../utils/helper";
+import {formatDate, getPostImagePath} from "../../../utils/helper";
 
 type Props = {
     post: IPost;
@@ -13,7 +13,7 @@ const PostCard: React.FC<Props> = ({post}) => {
 
     const displayDate = formatDate(post.date);
 
-    const imageSrc = `/images/posts/${post.slug}/${post.image}`;
+    const imageSrc = getPostImagePath(post);
 
     const linkSrc = `/posts/${post.slug}`;
 

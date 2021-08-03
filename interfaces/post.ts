@@ -3,5 +3,6 @@ export default interface IPost {
     image: string;
     date: string;
     slug: string;
-    excerpt: string;
+    excerpt?: string;
+    content?: string;
 }
