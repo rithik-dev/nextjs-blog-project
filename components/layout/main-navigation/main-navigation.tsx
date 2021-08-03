@@ -1,5 +1,3 @@
-// noinspection JSUnusedGlobalSymbols
-
 import Link from "next/link";
 import Logo from "../logo/logo";
 import styles from './main-navigation.module.css';

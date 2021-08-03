@@ -1,5 +1,3 @@
-// noinspection JSUnusedGlobalSymbols
-
 import styles from './logo.module.css';
 
 const Logo = () => (
