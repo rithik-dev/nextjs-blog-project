@@ -6,13 +6,20 @@ import {getPostData, getPostFiles} from "../../utils/posts-util";
 import React from "react";
 import IPost from "../../interfaces/post";
 import {removeFileExtension} from "../../utils/helper";
+import Head from "next/head";
 
 type Props = {
     postData: IPost;
 }
 
 const PostDetailsPage: React.FC<Props> = ({postData}) => (
-    <PostContent post={postData}/>
+    <>
+        <Head>
+            <title>{postData.title}</title>
+            <meta name={'description'} content={postData.excerpt}/>
+        </Head>
+        <PostContent post={postData}/>
+    </>
 )
 
 export const getStaticProps: GetStaticProps<Props> = (context) => {

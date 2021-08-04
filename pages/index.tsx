@@ -6,6 +6,7 @@ import {GetStaticProps} from "next";
 import IPost from "../interfaces/post";
 import React from "react";
 import {getFeaturedPosts} from "../utils/posts-util";
+import Head from "next/head";
 
 type Props = {
     featuredPosts: Array<IPost>;
@@ -13,6 +14,10 @@ type Props = {
 
 const HomePage: React.FC<Props> = ({featuredPosts}) => (
     <>
+        <Head>
+            <title>Welcome to my blog</title>
+            <meta name={'description'} content={'I post about programming here on this blog.'}/>
+        </Head>
         <Hero/>
         <FeaturedPosts posts={featuredPosts}/>
     </>
