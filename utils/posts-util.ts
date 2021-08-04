@@ -11,7 +11,6 @@ const POSTS_DIRECTORY = path.join(process.cwd(), 'posts');
 export const getPostData = (postIdentifier: string) => {
     // removes the file extension
     const postSlug = removeFileExtension(postIdentifier);
-    console.log(postSlug)
 
     const filePath = path.join(POSTS_DIRECTORY, `${postSlug}.md`);
     const fileContent = fs.readFileSync(filePath, 'utf-8');
