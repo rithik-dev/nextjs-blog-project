@@ -17,7 +17,8 @@ const handler: NextApiHandler = async (req, res) => {
 
         let client: MongoClient;
         try {
-            client = await MongoClient.connect(`${process.env.MONGO_BASE_URL}/my-blog-site`);
+            const mongoBaseUrl = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@cluster0.szwvn.mongodb.net`;
+            client = await MongoClient.connect(`${mongoBaseUrl}/my-blog-site`);
         } catch (e) {
             return res.status(500).json({message: 'Could not connect to the database.'});
         }
